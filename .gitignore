@@ -36,4 +36,3 @@ backend/bun.lock
 bun.lock
 .claude/
 TEST_RESULTS.md
-tests/
