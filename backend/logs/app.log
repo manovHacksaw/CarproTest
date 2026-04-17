@@ -1,0 +1,137 @@
+[2026-04-10T08:22:34.569Z] [INFO] Starting Car Rental Backend...
+[2026-04-10T08:22:34.605Z] [ERROR] FATAL: Cannot connect to blockchain. Start Hardhat node first.
+[2026-04-10T08:22:34.605Z] [ERROR] Run: npx hardhat node
+[2026-04-10T08:41:04.198Z] [INFO] Starting Car Rental Backend...
+[2026-04-10T10:40:52.477Z] [INFO] Starting Car Rental Backend...
+[2026-04-10T10:40:52.509Z] [ERROR] FATAL: Bootstrap failed. Cannot reach blockchain node at http://127.0.0.1:8545. Run: npx hardhat node
+[2026-04-10T10:40:52.509Z] [ERROR] Run: npx hardhat node
+[2026-04-10T10:49:23.440Z] [INFO] Starting Car Rental Backend...
+[2026-04-10T10:49:23.496Z] [INFO] Compiling CarRental.sol...
+[2026-04-10T10:49:26.013Z] [ERROR] Compilation failed | {"error":"Command failed: npx hardhat compile\n\u001b[31m\u001b[1mError\u001b[22m\u001b[39m \u001b[31m\u001b[1mHH502:\u001b[22m\u001b[39m Couldn't download compiler version list. Please check your internet connection and try again.\nFor more info go to https://v2.hardhat.org/HH502 or run Hardhat with --show-stack-traces\n"}
+[2026-04-10T10:49:26.015Z] [ERROR] FATAL: Bootstrap failed. Contract compilation failed: Command failed: npx hardhat compile
+[31m[1mError[22m[39m [31m[1mHH502:[22m[39m Couldn't download compiler version list. Please check your internet connection and try again.
+For more info go to https://v2.hardhat.org/HH502 or run Hardhat with --show-stack-traces
+
+[2026-04-10T10:49:26.017Z] [ERROR] Run: npx hardhat node
+[2026-04-10T10:49:35.371Z] [INFO] Starting Car Rental Backend...
+[2026-04-10T10:49:35.426Z] [INFO] Compiling CarRental.sol...
+[2026-04-10T10:49:37.885Z] [ERROR] Compilation failed | {"error":"Command failed: npx hardhat compile\n\u001b[31m\u001b[1mError\u001b[22m\u001b[39m \u001b[31m\u001b[1mHH502:\u001b[22m\u001b[39m Couldn't download compiler version list. Please check your internet connection and try again.\nFor more info go to https://v2.hardhat.org/HH502 or run Hardhat with --show-stack-traces\n"}
+[2026-04-10T10:49:37.886Z] [ERROR] FATAL: Bootstrap failed. Contract compilation failed: Command failed: npx hardhat compile
+[31m[1mError[22m[39m [31m[1mHH502:[22m[39m Couldn't download compiler version list. Please check your internet connection and try again.
+For more info go to https://v2.hardhat.org/HH502 or run Hardhat with --show-stack-traces
+
+[2026-04-10T10:49:37.887Z] [ERROR] Run: npx hardhat node
+[2026-04-10T11:00:04.210Z] [INFO] Starting Car Rental Backend...
+[2026-04-10T11:00:04.260Z] [INFO] Compiling CarRental.sol...
+[2026-04-10T11:00:06.769Z] [INFO] Contract compiled successfully
+[2026-04-10T11:00:06.772Z] [INFO] ABI updated from compiled artifact
+[2026-04-10T11:00:06.775Z] [INFO] Deploying CarRental contract...
+[2026-04-10T11:00:06.813Z] [INFO] Backend wallet (authorized signer): | {"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"}
+[2026-04-10T11:00:07.199Z] [INFO] Contract deployed | {"contractAddress":"0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9","authorizedBackend":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","deployedAt":"2026-04-10T11:00:07.162Z","network":"unknown","chainId":31337}
+[2026-04-10T11:00:07.204Z] [INFO] Blockchain event listeners active
+[2026-04-10T11:00:07.272Z] [INFO] Backend server running on http://localhost:5000
+[2026-04-10T11:00:07.275Z] [INFO] Environment: development
+[2026-04-10T11:00:07.285Z] [INFO] Blockchain: unknown (chainId: 31337)
+[2026-04-10T11:00:07.287Z] [INFO] API endpoints:
+[2026-04-10T11:00:07.293Z] [INFO]   GET  /health
+[2026-04-10T11:00:07.294Z] [INFO]   GET  /api/cars
+[2026-04-10T11:00:07.295Z] [INFO]   GET  /api/cars/:id/quote
+[2026-04-10T11:00:07.295Z] [INFO]   POST /api/reservations
+[2026-04-10T11:00:07.296Z] [INFO]   GET  /api/reservations/chain
+[2026-04-10T11:00:07.297Z] [INFO]   GET  /api/blockchain/status
+[2026-04-10T11:00:07.298Z] [INFO]   GET  /api/blockchain/balance/:address
+[2026-04-10T11:00:07.300Z] [INFO]   POST /api/users/auth
+[2026-04-10T11:00:07.301Z] [INFO]   GET  /api/analytics
+[2026-04-10T11:00:07.303Z] [INFO]   GET  /api/pricing/quote
+[2026-04-10T11:06:58.373Z] [INFO] Starting Car Rental Backend...
+[2026-04-10T11:06:58.409Z] [INFO] Compiling CarRental.sol...
+[2026-04-10T11:07:00.771Z] [INFO] Contract compiled successfully
+[2026-04-10T11:07:00.773Z] [INFO] ABI updated from compiled artifact
+[2026-04-10T11:07:00.773Z] [INFO] Deploying CarRental contract...
+[2026-04-10T11:07:00.810Z] [INFO] Backend wallet (authorized signer): | {"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"}
+[2026-04-10T11:07:00.995Z] [INFO] Contract deployed | {"contractAddress":"0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512","authorizedBackend":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","deployedAt":"2026-04-10T11:07:00.994Z","network":"unknown","chainId":31337}
+[2026-04-10T11:07:00.997Z] [INFO] Blockchain event listeners active
+[2026-04-10T11:07:01.010Z] [INFO] Backend server running on http://localhost:5000
+[2026-04-10T11:07:01.011Z] [INFO] Environment: development
+[2026-04-10T11:07:01.011Z] [INFO] Blockchain: unknown (chainId: 31337)
+[2026-04-10T11:07:01.011Z] [INFO] API endpoints:
+[2026-04-10T11:07:01.012Z] [INFO]   GET  /health
+[2026-04-10T11:07:01.012Z] [INFO]   GET  /api/cars
+[2026-04-10T11:07:01.012Z] [INFO]   GET  /api/cars/:id/quote
+[2026-04-10T11:07:01.013Z] [INFO]   POST /api/reservations
+[2026-04-10T11:07:01.013Z] [INFO]   GET  /api/reservations/chain
+[2026-04-10T11:07:01.013Z] [INFO]   GET  /api/blockchain/status
+[2026-04-10T11:07:01.014Z] [INFO]   GET  /api/blockchain/balance/:address
+[2026-04-10T11:07:01.014Z] [INFO]   POST /api/users/auth
+[2026-04-10T11:07:01.014Z] [INFO]   GET  /api/analytics
+[2026-04-10T11:07:01.015Z] [INFO]   GET  /api/pricing/quote
+[2026-04-17T13:29:34.121Z] [INFO] Starting Car Rental Backend...
+[2026-04-17T13:29:34.160Z] [ERROR] FATAL: Bootstrap failed. Cannot reach blockchain node at http://127.0.0.1:8545. Run: npx hardhat node
+[2026-04-17T13:29:34.161Z] [ERROR] Run: npx hardhat node
+[2026-04-17T13:29:44.447Z] [INFO] Starting Car Rental Backend...
+[2026-04-17T13:29:44.485Z] [ERROR] FATAL: Bootstrap failed. Cannot reach blockchain node at http://127.0.0.1:8545. Run: npx hardhat node
+[2026-04-17T13:29:44.486Z] [ERROR] Run: npx hardhat node
+[2026-04-17T13:52:32.062Z] [INFO] Starting Car Rental Backend...
+[2026-04-17T13:52:32.127Z] [ERROR] FATAL: Bootstrap failed. Cannot reach blockchain node at http://127.0.0.1:8545. Run: npx hardhat node
+[2026-04-17T13:52:32.128Z] [ERROR] Run: npx hardhat node
+[2026-04-17T13:53:14.794Z] [INFO] Starting Car Rental Backend...
+[2026-04-17T13:53:17.960Z] [INFO] Server running on http://localhost:5000
+[2026-04-17T13:53:17.960Z] [INFO] Environment: development
+[2026-04-17T13:53:17.961Z] [INFO] Blockchain: unknown (chainId: 31337)
+[2026-04-17T13:53:17.963Z] [INFO] Contract: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+[2026-04-17T13:53:17.964Z] [INFO] ─── API Routes ───────────────────────────────────────
+[2026-04-17T13:53:17.964Z] [INFO]   GET    /health
+[2026-04-17T13:53:17.965Z] [INFO]   GET    /api/status
+[2026-04-17T13:53:17.965Z] [INFO]   ── Cars ──
+[2026-04-17T13:53:17.966Z] [INFO]   GET    /api/cars
+[2026-04-17T13:53:17.966Z] [INFO]   GET    /api/cars/:id/quote
+[2026-04-17T13:53:17.967Z] [INFO]   GET    /api/cars/prices
+[2026-04-17T13:53:17.967Z] [INFO]   ── Reservations ──
+[2026-04-17T13:53:17.968Z] [INFO]   POST   /api/reservations
+[2026-04-17T13:53:17.968Z] [INFO]   PATCH  /api/reservations/:id/confirm
+[2026-04-17T13:53:17.969Z] [INFO]   DELETE /api/reservations/:id
+[2026-04-17T13:53:17.970Z] [INFO]   GET    /api/reservations/chain
+[2026-04-17T13:53:17.972Z] [INFO]   ── Contract (direct chain calls) ──
+[2026-04-17T13:53:17.974Z] [INFO]   GET    /api/contract/info
+[2026-04-17T13:53:17.974Z] [INFO]   GET    /api/contract/count
+[2026-04-17T13:53:17.975Z] [INFO]   GET    /api/contract/reservation/:id
+[2026-04-17T13:53:17.976Z] [INFO]   POST   /api/contract/book
+[2026-04-17T13:53:17.976Z] [INFO]   POST   /api/contract/confirm/:id
+[2026-04-17T13:53:17.977Z] [INFO]   POST   /api/contract/cancel/:id
+[2026-04-17T13:53:17.978Z] [INFO]   ── Blockchain ──
+[2026-04-17T13:53:17.978Z] [INFO]   GET    /api/blockchain/status
+[2026-04-17T13:53:17.979Z] [INFO]   GET    /api/blockchain/balance/:address
+[2026-04-17T13:53:17.979Z] [INFO]   GET    /api/blockchain/tx/:hash
+[2026-04-17T13:53:17.980Z] [INFO]   GET    /api/blockchain/events
+[2026-04-17T13:53:17.980Z] [INFO]   ── Wallet ──
+[2026-04-17T13:53:17.981Z] [INFO]   GET    /api/wallet/:address/balance
+[2026-04-17T13:53:17.981Z] [INFO]   GET    /api/wallet/:address/nonce
+[2026-04-17T13:53:17.982Z] [INFO]   GET    /api/wallet/:address/history
+[2026-04-17T13:53:17.982Z] [INFO]   POST   /api/wallet/validate
+[2026-04-17T13:53:17.983Z] [INFO]   POST   /api/wallet/estimate-transfer
+[2026-04-17T13:53:17.983Z] [INFO]   ── Gas ──
+[2026-04-17T13:53:17.984Z] [INFO]   GET    /api/gas/price
+[2026-04-17T13:53:17.984Z] [INFO]   POST   /api/gas/estimate
+[2026-04-17T13:53:17.987Z] [INFO]   POST   /api/gas/estimate/batch
+[2026-04-17T13:53:17.989Z] [INFO]   ── Payments ──
+[2026-04-17T13:53:17.990Z] [INFO]   POST   /api/payments/verify
+[2026-04-17T13:53:17.999Z] [INFO]   GET    /api/payments/revenue
+[2026-04-17T13:53:18.000Z] [INFO]   GET    /api/payments/reservation/:id
+[2026-04-17T13:53:18.001Z] [INFO]   ── Events ──
+[2026-04-17T13:53:18.001Z] [INFO]   GET    /api/events
+[2026-04-17T13:53:18.007Z] [INFO]   GET    /api/events/latest
+[2026-04-17T13:53:18.007Z] [INFO]   GET    /api/events/types
+[2026-04-17T13:53:18.008Z] [INFO]   GET    /api/events/query
+[2026-04-17T13:53:18.008Z] [INFO]   ── Notifications (SSE) ──
+[2026-04-17T13:53:18.009Z] [INFO]   GET    /api/notifications/subscribe/:address
+[2026-04-17T13:53:18.009Z] [INFO]   GET    /api/notifications/stats
+[2026-04-17T13:53:18.010Z] [INFO]   ── Users ──
+[2026-04-17T13:53:18.010Z] [INFO]   POST   /api/users/auth
+[2026-04-17T13:53:18.011Z] [INFO]   GET    /api/users/:address
+[2026-04-17T13:53:18.011Z] [INFO]   ── Analytics ──
+[2026-04-17T13:53:18.012Z] [INFO]   GET    /api/analytics
+[2026-04-17T13:53:18.012Z] [INFO]   GET    /api/analytics/cars
+[2026-04-17T13:53:18.013Z] [INFO]   ── Pricing ──
+[2026-04-17T13:53:18.013Z] [INFO]   GET    /api/pricing/quote
+[2026-04-17T13:53:18.014Z] [INFO]   GET    /api/pricing/all
+[2026-04-17T13:53:18.014Z] [INFO] ─────────────────────────────────────────────────────
