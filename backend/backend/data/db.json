@@ -1,0 +1,203 @@
+{
+  "users": [
+    {
+      "address": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "lastActivity": "2026-04-17T19:37:01.603Z",
+      "createdAt": "2026-04-17T19:37:01.603Z",
+      "updatedAt": "2026-04-17T19:37:01.603Z"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "0e170875-6122-404d-8924-32c5c9d9a851",
+      "renterAddress": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carName": "Audi A5 S-Line",
+      "carId": 1,
+      "pickUpDate": "2026-05-01",
+      "dropOffDate": "2026-05-05",
+      "pickUpLocation": "Los Angeles",
+      "dropOffLocation": "Los Angeles",
+      "pricing": {
+        "carName": "Audi A5 S-Line",
+        "days": 4,
+        "totalEth": "0.148000",
+        "totalUsd": "296.00",
+        "pricePerDayEth": "0.037",
+        "discountedEth": "0.140600",
+        "discountedUsd": "281.20",
+        "discountPercent": 5,
+        "ethToUsdRate": 2000
+      },
+      "status": "pending",
+      "chainReservationId": null,
+      "txHash": null,
+      "createdAt": "2026-04-17T19:37:01.601Z",
+      "updatedAt": "2026-04-17T19:37:01.601Z"
+    }
+  ],
+  "payments": [],
+  "analytics": {
+    "totalBookings": 0,
+    "totalRevenue": "0",
+    "carStats": {}
+  },
+  "events": [
+    {
+      "type": "CarBooked",
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carType": "Audi A5 S-Line",
+      "pickUpDate": 1777593600,
+      "dropOffDate": 1777939200,
+      "txHash": "0x6fc3ee4bcfa251327c1f33268abf0c6fab8cf59d4bc98974a182262a9e3d9c02",
+      "blockNumber": 8,
+      "savedAt": "2026-04-17T19:38:02.200Z"
+    },
+    {
+      "type": "PaymentReceived",
+      "reservationId": 0,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.01",
+      "txHash": "0x6fc3ee4bcfa251327c1f33268abf0c6fab8cf59d4bc98974a182262a9e3d9c02",
+      "blockNumber": 8,
+      "savedAt": "2026-04-17T19:38:02.218Z"
+    },
+    {
+      "type": "ReservationConfirmed",
+      "reservationId": 0,
+      "txHash": "0x4604c733391133e6bf0d06be333465e23d596cc5053a4216f2c9354553bcadfb",
+      "blockNumber": 9,
+      "savedAt": "2026-04-17T19:38:10.213Z"
+    },
+    {
+      "type": "DisputeRaised",
+      "reservationId": 0,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "reason": "Car was not in the agreed condition",
+      "txHash": "0xb04f418f6d705946ad32becc454e548684410dc8b53a3674487c56ba590f5fd7",
+      "blockNumber": 10,
+      "savedAt": "2026-04-17T19:38:18.249Z"
+    },
+    {
+      "type": "DisputeResolved",
+      "reservationId": 0,
+      "resolver": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "refunded": true,
+      "txHash": "0x7f89cc6ba36cf53234e47197175cd21539f8a63cfa5c38a3e0afbfcfb17df07f",
+      "blockNumber": 11,
+      "savedAt": "2026-04-17T19:38:26.271Z"
+    },
+    {
+      "type": "FundsWithdrawn",
+      "owner": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "amountEth": "0.01",
+      "txHash": "0xb51f9fa1faaaffb044c03f097942199b8b039cbee9521f9b591a50acde7a34e9",
+      "blockNumber": 12,
+      "savedAt": "2026-04-17T19:38:30.281Z"
+    },
+    {
+      "type": "CarBooked",
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carType": "Audi A5 S-Line",
+      "pickUpDate": 1777593600,
+      "dropOffDate": 1777939200,
+      "txHash": "0xa64fd08b01d6461a25722750de459787d9477bff2457b9195c6af82049098515",
+      "blockNumber": 14,
+      "savedAt": "2026-04-17T19:44:38.995Z"
+    },
+    {
+      "type": "ReservationConfirmed",
+      "reservationId": 0,
+      "txHash": "0x4c338a1a1a166818e33ea3b5e5dc74bd5f672b792fbd1f1799b1e6ffe09046ca",
+      "blockNumber": 15,
+      "savedAt": "2026-04-17T19:44:38.997Z"
+    },
+    {
+      "type": "FundsWithdrawn",
+      "owner": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "amountEth": "0.01",
+      "txHash": "0xb7cb21b9bd2bfdc1d85482467329b73a7c88065162f9e97906dd0cf2d6a589c1",
+      "blockNumber": 18,
+      "savedAt": "2026-04-17T19:44:38.997Z"
+    },
+    {
+      "type": "PaymentReceived",
+      "reservationId": 1,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.01",
+      "txHash": "0xa64fd08b01d6461a25722750de459787d9477bff2457b9195c6af82049098515",
+      "blockNumber": 14,
+      "savedAt": "2026-04-17T19:44:38.998Z"
+    },
+    {
+      "type": "DisputeRaised",
+      "reservationId": 0,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "reason": "Car was not in the agreed condition",
+      "txHash": "0x51b0aeb203a117039d5acc7e2c6de252b409e8a6583c853b612eedfd805d3b3a",
+      "blockNumber": 16,
+      "savedAt": "2026-04-17T19:44:38.999Z"
+    },
+    {
+      "type": "DisputeResolved",
+      "reservationId": 0,
+      "resolver": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "refunded": true,
+      "txHash": "0x4bb1d8c866cade570dc68d91c7bb104e351db66b9a4b2f03fc7f6ec61e7fbc14",
+      "blockNumber": 17,
+      "savedAt": "2026-04-17T19:44:39.000Z"
+    },
+    {
+      "type": "CarBooked",
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carType": "Audi A5 S-Line",
+      "pickUpDate": 1777593600,
+      "dropOffDate": 1777939200,
+      "txHash": "0x77dded67b9e1b674473200e751625de7bc07ef11c4ead798975607f18564c629",
+      "blockNumber": 20,
+      "savedAt": "2026-04-17T19:46:03.154Z"
+    },
+    {
+      "type": "ReservationConfirmed",
+      "reservationId": 0,
+      "txHash": "0xf0dc6beb248d8aaf3d1828f3a22f60d861a63a44db76c9eeadeabfb0584e38a3",
+      "blockNumber": 21,
+      "savedAt": "2026-04-17T19:46:03.157Z"
+    },
+    {
+      "type": "PaymentReceived",
+      "reservationId": 2,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.01",
+      "txHash": "0x77dded67b9e1b674473200e751625de7bc07ef11c4ead798975607f18564c629",
+      "blockNumber": 20,
+      "savedAt": "2026-04-17T19:46:03.157Z"
+    },
+    {
+      "type": "FundsWithdrawn",
+      "owner": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "amountEth": "0.01",
+      "txHash": "0x98da00088b962e30c043a9e1b93e3b7c6de10a2dbb988a3c7e4ed84de4f6472b",
+      "blockNumber": 24,
+      "savedAt": "2026-04-17T19:46:03.158Z"
+    },
+    {
+      "type": "DisputeRaised",
+      "reservationId": 0,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "reason": "Car was not in the agreed condition",
+      "txHash": "0xc075dc861b3e83bde3b3779afc04acb2f4bb3c7c692beb1bf97d31fe34d3177c",
+      "blockNumber": 22,
+      "savedAt": "2026-04-17T19:46:03.159Z"
+    },
+    {
+      "type": "DisputeResolved",
+      "reservationId": 0,
+      "resolver": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "refunded": true,
+      "txHash": "0x06cd2938beb5180ced984e56c705d547404fb461df99b00019c954cebc310e57",
+      "blockNumber": 23,
+      "savedAt": "2026-04-17T19:46:03.160Z"
+    }
+  ],
+  "transactions": []
+}

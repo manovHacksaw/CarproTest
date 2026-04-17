@@ -6,8 +6,9 @@ class ContractInteractionService {
   async executeBookCar(renterAddress, carType, pickUpDate, dropOffDate) {
     try {
       const contract = blockchainService.getContract();
-      const tx = await contract.bookCar(renterAddress, carType, pickUpDate, dropOffDate);
-      
+      const fee = await contract.rentalFee();
+      const tx = await contract.bookCar(renterAddress, carType, pickUpDate, dropOffDate, { value: fee });
+
       logger.info("BookCar transaction sent", { txHash: tx.hash });
       
       const receipt = await tx.wait();

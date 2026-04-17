@@ -43,6 +43,58 @@ class PaymentController {
       return errorResponse(res, err.message, 500);
     }
   }
+
+  // ── On-chain payment handlers ─────────────────────────────────────────────────
+
+  async getRentalFee(req, res) {
+    try {
+      const fee = await paymentService.getChainFee();
+      return successResponse(res, fee, "Current rental fee");
+    } catch (err) {
+      return errorResponse(res, err.message, 500);
+    }
+  }
+
+  async getContractBalance(req, res) {
+    try {
+      const balance = await paymentService.getChainBalance();
+      return successResponse(res, balance, "Contract balance");
+    } catch (err) {
+      return errorResponse(res, err.message, 500);
+    }
+  }
+
+  async getReservationPayment(req, res) {
+    try {
+      const { reservationId } = req.params;
+      const payment = await paymentService.getChainReservationPayment(reservationId);
+      return successResponse(res, { reservationId: Number(reservationId), ...payment });
+    } catch (err) {
+      return errorResponse(res, err.message, 500);
+    }
+  }
+
+  async setRentalFee(req, res) {
+    try {
+      const { feeEth } = req.body;
+      if (feeEth === undefined || feeEth === null) return errorResponse(res, "feeEth is required", 422);
+      const result = await paymentService.setFee(feeEth);
+      return successResponse(res, result, "Rental fee updated");
+    } catch (err) {
+      logger.error("setRentalFee error", { error: err.message });
+      return errorResponse(res, err.message, 500);
+    }
+  }
+
+  async withdrawFunds(req, res) {
+    try {
+      const result = await paymentService.withdraw();
+      return successResponse(res, result, "Funds withdrawn successfully");
+    } catch (err) {
+      logger.error("Withdraw error", { error: err.message });
+      return errorResponse(res, err.message, 500);
+    }
+  }
 }
 
 module.exports = new PaymentController();

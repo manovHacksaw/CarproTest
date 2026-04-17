@@ -76,6 +76,31 @@ class PaymentService {
       .reduce((sum, p) => sum + parseFloat(p.amountEth || 0), 0);
     return total.toFixed(6);
   }
+
+  // ── On-chain reads ────────────────────────────────────────────────────────────
+
+  async getChainFee() {
+    return blockchainService.getRentalFee();
+  }
+
+  async getChainBalance() {
+    return blockchainService.getContractBalance();
+  }
+
+  async getChainReservationPayment(reservationId) {
+    return blockchainService.getReservationPayment(reservationId);
+  }
+
+  async setFee(feeEth) {
+    const feeWei = ethers.utils.parseEther(String(feeEth));
+    const receipt = await blockchainService.setRentalFee(feeWei);
+    return { txHash: receipt.transactionHash, feeEth, feeWei: feeWei.toString() };
+  }
+
+  async withdraw() {
+    const receipt = await blockchainService.withdrawFunds();
+    return { txHash: receipt.transactionHash };
+  }
 }
 
 module.exports = new PaymentService();

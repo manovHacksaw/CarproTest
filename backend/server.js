@@ -31,6 +31,7 @@ const gasRouter = require("./routes/gas");
 const walletRouter = require("./routes/wallet");
 const eventsRouter = require("./routes/events");
 const notificationsRouter = require("./routes/notifications");
+const disputesRouter = require("./routes/disputes");
 
 const app = express();
 
@@ -80,6 +81,7 @@ app.use("/api/gas", gasRouter);                 // gas estimation
 app.use("/api/wallet", walletRouter);           // wallet balance, nonce, history
 app.use("/api/events", eventsRouter);           // blockchain event log
 app.use("/api/notifications", notificationsRouter); // SSE real-time notifications
+app.use("/api/disputes", disputesRouter);           // dispute resolution
 
 // ── 404 & Error Handling ──────────────────────────────────────────────────────
 app.use(notFound);
@@ -144,6 +146,15 @@ async function start() {
     logger.info("  POST   /api/payments/verify");
     logger.info("  GET    /api/payments/revenue");
     logger.info("  GET    /api/payments/reservation/:id");
+    logger.info("  GET    /api/payments/fee");
+    logger.info("  GET    /api/payments/contract-balance");
+    logger.info("  GET    /api/payments/chain/:reservationId");
+    logger.info("  POST   /api/payments/fee");
+    logger.info("  POST   /api/payments/withdraw");
+    logger.info("  ── Disputes ──");
+    logger.info("  POST   /api/disputes/:reservationId/raise");
+    logger.info("  POST   /api/disputes/:reservationId/resolve");
+    logger.info("  GET    /api/disputes/:reservationId");
     logger.info("  ── Events ──");
     logger.info("  GET    /api/events");
     logger.info("  GET    /api/events/latest");

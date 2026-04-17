@@ -158,8 +158,9 @@ async function getAllReservationsFromChain() {
 async function bookCarOnChain(renterAddress, carType, pickUpDate, dropOffDate) {
   const pickTs = Math.floor(new Date(pickUpDate).getTime() / 1000);
   const dropTs = Math.floor(new Date(dropOffDate).getTime() / 1000);
-  // Backend signs the tx — renter address is passed as a parameter
-  const tx = await getContract().bookCar(renterAddress, carType, pickTs, dropTs);
+  // Read current rentalFee from chain and forward it as msg.value
+  const fee = await getContract().rentalFee();
+  const tx = await getContract().bookCar(renterAddress, carType, pickTs, dropTs, { value: fee });
   const receipt = await tx.wait();
   logger.info("bookCar tx confirmed", { txHash: receipt.transactionHash });
   return receipt;
@@ -177,6 +178,62 @@ async function cancelReservationOnChain(reservationId) {
   const receipt = await tx.wait();
   logger.info("cancelReservation tx confirmed", { txHash: receipt.transactionHash });
   return receipt;
+}
+
+// ── Payment Functions ─────────────────────────────────────────────────────────
+async function getRentalFee() {
+  const fee = await getContract().rentalFee();
+  return { wei: fee.toString(), eth: ethers.utils.formatEther(fee) };
+}
+
+async function getContractBalance() {
+  const bal = await getProvider().getBalance(contractAddress);
+  return { wei: bal.toString(), eth: ethers.utils.formatEther(bal) };
+}
+
+async function getReservationPayment(reservationId) {
+  const amount = await getContract().reservationPayments(reservationId);
+  return { wei: amount.toString(), eth: ethers.utils.formatEther(amount) };
+}
+
+async function setRentalFee(feeWei) {
+  const tx = await getContract().setRentalFee(feeWei);
+  const receipt = await tx.wait();
+  logger.info("setRentalFee tx confirmed", { txHash: receipt.transactionHash, feeWei });
+  return receipt;
+}
+
+async function withdrawFunds() {
+  const tx = await getContract().withdraw();
+  const receipt = await tx.wait();
+  logger.info("withdraw tx confirmed", { txHash: receipt.transactionHash });
+  return receipt;
+}
+
+// ── Dispute Functions ─────────────────────────────────────────────────────────
+async function raiseDisputeOnChain(reservationId, reason) {
+  const tx = await getContract().raiseDispute(reservationId, reason);
+  const receipt = await tx.wait();
+  logger.info("raiseDispute tx confirmed", { txHash: receipt.transactionHash, reservationId });
+  return receipt;
+}
+
+async function resolveDisputeOnChain(reservationId, refund) {
+  const tx = await getContract().resolveDispute(reservationId, refund);
+  const receipt = await tx.wait();
+  logger.info("resolveDispute tx confirmed", { txHash: receipt.transactionHash, reservationId, refund });
+  return receipt;
+}
+
+async function getDisputeFromChain(reservationId) {
+  const d = await getContract().getDispute(reservationId);
+  const outcomeMap = { 0: "None", 1: "Refunded", 2: "Rejected" };
+  return {
+    renter: d.renter,
+    reason: d.reason,
+    raised: d.raised,
+    outcome: outcomeMap[d.outcome] ?? "None",
+  };
 }
 
 async function getWalletBalance(address) {
@@ -230,6 +287,30 @@ function startEventListener() {
     logger.info("Event: ReservationCanceled", data);
   });
 
+  c.on("PaymentReceived", (reservationId, renter, amount, event) => {
+    const data = { type: "PaymentReceived", reservationId: reservationId.toNumber(), renter, amountEth: ethers.utils.formatEther(amount), txHash: event.transactionHash, blockNumber: event.blockNumber };
+    db.saveEvent(data);
+    logger.info("Event: PaymentReceived", data);
+  });
+
+  c.on("FundsWithdrawn", (owner, amount, event) => {
+    const data = { type: "FundsWithdrawn", owner, amountEth: ethers.utils.formatEther(amount), txHash: event.transactionHash, blockNumber: event.blockNumber };
+    db.saveEvent(data);
+    logger.info("Event: FundsWithdrawn", data);
+  });
+
+  c.on("DisputeRaised", (reservationId, renter, reason, event) => {
+    const data = { type: "DisputeRaised", reservationId: reservationId.toNumber(), renter, reason, txHash: event.transactionHash, blockNumber: event.blockNumber };
+    db.saveEvent(data);
+    logger.info("Event: DisputeRaised", data);
+  });
+
+  c.on("DisputeResolved", (reservationId, resolver, refunded, event) => {
+    const data = { type: "DisputeResolved", reservationId: reservationId.toNumber(), resolver, refunded, txHash: event.transactionHash, blockNumber: event.blockNumber };
+    db.saveEvent(data);
+    logger.info("Event: DisputeResolved", data);
+  });
+
   logger.info("Blockchain event listeners active");
 }
 
@@ -249,4 +330,12 @@ module.exports = {
   getContract,
   getSigner,
   getProvider,
+  getRentalFee,
+  getContractBalance,
+  getReservationPayment,
+  setRentalFee,
+  withdrawFunds,
+  raiseDisputeOnChain,
+  resolveDisputeOnChain,
+  getDisputeFromChain,
 };
