@@ -3,7 +3,7 @@ const db = require("../models/db");
 const blockchainService = require("./blockchainService");
 const pricingService = require("./pricingService");
 const { validateDateRange } = require("../utils/helpers");
-const logger = console;
+const logger = require("../utils/logger");
 
 async function createReservation({ renterAddress, carName, pickUpDate, dropOffDate, pickUpLocation, dropOffLocation, personalInfo }) {
   // Validate dates

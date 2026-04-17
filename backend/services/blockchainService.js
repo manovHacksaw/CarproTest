@@ -3,7 +3,7 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const { RPC_URL, PRIVATE_KEY } = require("../config/config");
-const logger = console;
+const logger = require("../utils/logger");
 const db = require("../models/db");
 
 const ABI_PATH = path.resolve(__dirname, "../../src/ABI/abi.json");
@@ -228,11 +228,12 @@ async function resolveDisputeOnChain(reservationId, refund) {
 async function getDisputeFromChain(reservationId) {
   const d = await getContract().getDispute(reservationId);
   const outcomeMap = { 0: "None", 1: "Refunded", 2: "Rejected" };
+  const outcomeKey = typeof d.outcome === "object" ? d.outcome.toNumber() : Number(d.outcome);
   return {
     renter: d.renter,
     reason: d.reason,
     raised: d.raised,
-    outcome: outcomeMap[d.outcome] ?? "None",
+    outcome: outcomeMap[outcomeKey] ?? "None",
   };
 }
 

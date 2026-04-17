@@ -73,7 +73,10 @@ class PaymentService {
     const payments = db.getPayments();
     const total = payments
       .filter((p) => p.status === "confirmed")
-      .reduce((sum, p) => sum + parseFloat(p.amountEth || 0), 0);
+      .reduce((sum, p) => {
+        const val = parseFloat(p.amountEth);
+        return sum + (isNaN(val) ? 0 : val);
+      }, 0);
     return total.toFixed(6);
   }
 
