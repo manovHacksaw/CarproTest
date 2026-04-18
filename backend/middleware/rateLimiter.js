@@ -11,7 +11,7 @@ const globalLimiter = rateLimit({
 
 const bookingLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
-  max: 10,
+  max: process.env.NODE_ENV === "development" ? 1000 : 10,
   message: { success: false, message: "Too many booking attempts. Try again in an hour." },
 });
 

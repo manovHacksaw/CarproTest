@@ -1,20 +1,20 @@
 {
   "users": [
     {
-      "address": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-      "lastActivity": "2026-04-18T13:53:06.077Z",
-      "createdAt": "2026-04-18T13:53:06.077Z",
-      "updatedAt": "2026-04-18T13:53:06.077Z"
+      "address": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "lastActivity": "2026-04-18T14:36:18.660Z",
+      "createdAt": "2026-04-18T14:36:11.811Z",
+      "updatedAt": "2026-04-18T14:36:18.660Z"
     }
   ],
   "reservations": [
     {
-      "id": "dea7a49b-d367-4272-9ddb-7e3c3174e536",
-      "renterAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "id": "8bc54234-a6c3-485e-abae-17ae5828b6f2",
+      "renterAddress": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
       "carName": "BMW 530",
       "carId": 4,
-      "pickUpDate": "2026-05-01",
-      "dropOffDate": "2026-05-08",
+      "pickUpDate": "2026-07-01",
+      "dropOffDate": "2026-07-08",
       "pickUpLocation": "Los Angeles",
       "dropOffLocation": "Los Angeles",
       "pricing": {
@@ -29,55 +29,288 @@
         "ethToUsdRate": 2000
       },
       "personalInfo": {
-        "name": "Test User",
-        "email": "test@example.com",
-        "phone": "555-0100"
+        "name": "Alice Test",
+        "email": "alice@test.com",
+        "phone": "555-0101"
       },
       "status": "confirmed",
-      "chainReservationId": 0,
-      "txHash": "0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c",
-      "createdAt": "2026-04-18T13:53:06.076Z",
-      "updatedAt": "2026-04-18T13:53:17.192Z"
+      "chainReservationId": 4,
+      "txHash": "0xb5f0ce37fd649eb0b04fe5cc1bdcec50320908ae8f787840d8edaa26888b0725",
+      "createdAt": "2026-04-18T14:36:11.807Z",
+      "updatedAt": "2026-04-18T14:36:25.479Z"
+    },
+    {
+      "id": "8de20295-daa4-4e83-b7ea-31966aae146e",
+      "renterAddress": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carName": "Kia Sportage",
+      "carId": 5,
+      "pickUpDate": "2026-08-10",
+      "dropOffDate": "2026-08-14",
+      "pickUpLocation": "Los Angeles",
+      "dropOffLocation": "San Diego",
+      "pricing": {
+        "carName": "Kia Sportage",
+        "days": 4,
+        "totalEth": "0.100000",
+        "totalUsd": "200.00",
+        "pricePerDayEth": "0.025",
+        "discountedEth": "0.095000",
+        "discountedUsd": "190.00",
+        "discountPercent": 5,
+        "ethToUsdRate": 2000
+      },
+      "personalInfo": {
+        "name": "Bob Test",
+        "email": "bob@test.com",
+        "phone": "555-0102"
+      },
+      "status": "cancelled",
+      "chainReservationId": 5,
+      "txHash": "0xf0a66736f8579e43b179e82b4b81c493ba0020b6e66e3559e06139f2152b258a",
+      "createdAt": "2026-04-18T14:36:12.146Z",
+      "updatedAt": "2026-04-18T14:36:12.368Z"
+    },
+    {
+      "id": "663f3e21-5efd-4bb1-b071-9371a759a4ca",
+      "renterAddress": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carName": "Toyota Corolla",
+      "carId": 3,
+      "pickUpDate": "2026-04-19",
+      "dropOffDate": "2026-04-21",
+      "pickUpLocation": "Los Angeles",
+      "dropOffLocation": "Los Angeles",
+      "pricing": {
+        "carName": "Toyota Corolla",
+        "days": 2,
+        "totalEth": "0.046000",
+        "totalUsd": "92.00",
+        "pricePerDayEth": "0.023",
+        "discountedEth": "0.046000",
+        "discountedUsd": "92.00",
+        "discountPercent": 0,
+        "ethToUsdRate": 2000
+      },
+      "personalInfo": {
+        "name": "Carol Test",
+        "email": "carol@test.com",
+        "phone": "555-0103"
+      },
+      "status": "cancelled",
+      "chainReservationId": 6,
+      "txHash": "0x58f4c39dce3eb51cf16c939a2f1f8c6f1520a5c23bfc43ff77a60dd6410e57d9",
+      "createdAt": "2026-04-18T14:36:18.412Z",
+      "updatedAt": "2026-04-18T14:36:18.634Z"
+    },
+    {
+      "id": "9d3d9339-c55c-4688-b422-2512e6ba2eb5",
+      "renterAddress": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carName": "Mini Cooper",
+      "carId": 6,
+      "pickUpDate": "2026-09-01",
+      "dropOffDate": "2026-09-05",
+      "pickUpLocation": "Los Angeles",
+      "dropOffLocation": "San Diego",
+      "pricing": {
+        "carName": "Mini Cooper",
+        "days": 4,
+        "totalEth": "0.080000",
+        "totalUsd": "160.00",
+        "pricePerDayEth": "0.02",
+        "discountedEth": "0.076000",
+        "discountedUsd": "152.00",
+        "discountPercent": 5,
+        "ethToUsdRate": 2000
+      },
+      "personalInfo": {
+        "name": "Dave Test",
+        "email": "dave@test.com",
+        "phone": "555-0104"
+      },
+      "status": "confirmed",
+      "chainReservationId": 7,
+      "txHash": "0x444d9c47493d2332f291eb47bf2a1d2daf057da84376e892541d9e3aa8071776",
+      "createdAt": "2026-04-18T14:36:18.657Z",
+      "updatedAt": "2026-04-18T14:36:18.864Z"
     }
   ],
   "payments": [],
   "analytics": {
-    "totalBookings": 1,
-    "totalRevenue": "0.214200",
+    "totalBookings": 3,
+    "totalRevenue": "0.504400",
     "carStats": {
       "BMW 530": {
+        "bookings": 2,
+        "revenue": "0.428400"
+      },
+      "Mini Cooper": {
         "bookings": 1,
-        "revenue": "0.214200"
+        "revenue": "0.076000"
       }
     }
   },
   "events": [
     {
       "type": "CarBooked",
-      "reservationId": 0,
-      "renter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "reservationId": 4,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
       "carType": "BMW 530",
-      "pickUpDate": 1777593600,
-      "dropOffDate": 1778198400,
-      "txHash": "0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c",
-      "blockNumber": 4,
-      "savedAt": "2026-04-18T13:53:08.471Z"
+      "pickUpDate": 1782864000,
+      "dropOffDate": 1783468800,
+      "txHash": "0xb5f0ce37fd649eb0b04fe5cc1bdcec50320908ae8f787840d8edaa26888b0725",
+      "blockNumber": 55,
+      "savedAt": "2026-04-18T14:36:17.185Z"
     },
     {
-      "type": "PaymentReceived",
-      "reservationId": 0,
-      "renter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-      "amountEth": "0.0",
-      "txHash": "0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c",
-      "blockNumber": 4,
-      "savedAt": "2026-04-18T13:53:08.480Z"
+      "type": "CarBooked",
+      "reservationId": 5,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carType": "Kia Sportage",
+      "pickUpDate": 1786320000,
+      "dropOffDate": 1786665600,
+      "txHash": "0xf0a66736f8579e43b179e82b4b81c493ba0020b6e66e3559e06139f2152b258a",
+      "blockNumber": 57,
+      "savedAt": "2026-04-18T14:36:17.187Z"
     },
     {
       "type": "ReservationConfirmed",
-      "reservationId": 0,
-      "txHash": "0xf5c857bf49349e5322c96bffdef3ece8d48b56148754032e607dd52523e5679a",
-      "blockNumber": 5,
-      "savedAt": "2026-04-18T13:53:20.499Z"
+      "reservationId": 4,
+      "txHash": "0x288193c9b8e61517fd30430ec9f4cfdd6bbc292070aa4694d0c2d3a0e96e38ac",
+      "blockNumber": 56,
+      "savedAt": "2026-04-18T14:36:17.194Z"
+    },
+    {
+      "type": "ReservationCanceled",
+      "reservationId": 5,
+      "txHash": "0x8ee0c36f6778d49b17d1ee87b89e35144840c4dc9817d026622f8f4adc1f9392",
+      "blockNumber": 58,
+      "savedAt": "2026-04-18T14:36:17.197Z"
+    },
+    {
+      "type": "PaymentReceived",
+      "reservationId": 4,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.01",
+      "txHash": "0xb5f0ce37fd649eb0b04fe5cc1bdcec50320908ae8f787840d8edaa26888b0725",
+      "blockNumber": 55,
+      "savedAt": "2026-04-18T14:36:17.199Z"
+    },
+    {
+      "type": "PaymentReceived",
+      "reservationId": 5,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.01",
+      "txHash": "0xf0a66736f8579e43b179e82b4b81c493ba0020b6e66e3559e06139f2152b258a",
+      "blockNumber": 57,
+      "savedAt": "2026-04-18T14:36:17.202Z"
+    },
+    {
+      "type": "RefundIssued",
+      "reservationId": 5,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.01",
+      "reason": "Full refund: cancelled >48h before pickup",
+      "txHash": "0x8ee0c36f6778d49b17d1ee87b89e35144840c4dc9817d026622f8f4adc1f9392",
+      "blockNumber": 58,
+      "savedAt": "2026-04-18T14:36:17.211Z"
+    },
+    {
+      "type": "CarBooked",
+      "reservationId": 6,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carType": "Toyota Corolla",
+      "pickUpDate": 1776556800,
+      "dropOffDate": 1776729600,
+      "txHash": "0x58f4c39dce3eb51cf16c939a2f1f8c6f1520a5c23bfc43ff77a60dd6410e57d9",
+      "blockNumber": 59,
+      "savedAt": "2026-04-18T14:36:21.190Z"
+    },
+    {
+      "type": "CarBooked",
+      "reservationId": 7,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "carType": "Mini Cooper",
+      "pickUpDate": 1788220800,
+      "dropOffDate": 1788566400,
+      "txHash": "0x444d9c47493d2332f291eb47bf2a1d2daf057da84376e892541d9e3aa8071776",
+      "blockNumber": 61,
+      "savedAt": "2026-04-18T14:36:21.192Z"
+    },
+    {
+      "type": "ReservationConfirmed",
+      "reservationId": 7,
+      "txHash": "0xef1718f12b31076c196f1a8c4f2ee8d73d873e90b37635c75ae61742f4152e6e",
+      "blockNumber": 62,
+      "savedAt": "2026-04-18T14:36:21.195Z"
+    },
+    {
+      "type": "ReservationCanceled",
+      "reservationId": 6,
+      "txHash": "0x825f3637540ee14e23525b2ec3f58df3f30965dabcf9472ce2db68999b57141e",
+      "blockNumber": 60,
+      "savedAt": "2026-04-18T14:36:21.207Z"
+    },
+    {
+      "type": "PaymentReceived",
+      "reservationId": 6,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.01",
+      "txHash": "0x58f4c39dce3eb51cf16c939a2f1f8c6f1520a5c23bfc43ff77a60dd6410e57d9",
+      "blockNumber": 59,
+      "savedAt": "2026-04-18T14:36:21.211Z"
+    },
+    {
+      "type": "PaymentReceived",
+      "reservationId": 7,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.01",
+      "txHash": "0x444d9c47493d2332f291eb47bf2a1d2daf057da84376e892541d9e3aa8071776",
+      "blockNumber": 61,
+      "savedAt": "2026-04-18T14:36:21.214Z"
+    },
+    {
+      "type": "DisputeRaised",
+      "reservationId": 7,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "reason": "Car was damaged on arrival",
+      "txHash": "0xc8201d95ca9e1f8774454cee755295121af46fbff8d545c00797b5af6695baff",
+      "blockNumber": 63,
+      "savedAt": "2026-04-18T14:36:21.218Z"
+    },
+    {
+      "type": "DisputeResolved",
+      "reservationId": 7,
+      "resolver": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "refunded": true,
+      "txHash": "0xe0cca744130beec07e14e033d39ee25509547178e96f951ae8ebe226dacb86fb",
+      "blockNumber": 64,
+      "savedAt": "2026-04-18T14:36:21.220Z"
+    },
+    {
+      "type": "RefundIssued",
+      "reservationId": 6,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.005",
+      "reason": "Partial refund: cancelled within 48h of pickup",
+      "txHash": "0x825f3637540ee14e23525b2ec3f58df3f30965dabcf9472ce2db68999b57141e",
+      "blockNumber": 60,
+      "savedAt": "2026-04-18T14:36:21.223Z"
+    },
+    {
+      "type": "RefundIssued",
+      "reservationId": 7,
+      "renter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "amountEth": "0.01",
+      "reason": "Dispute resolved in renter's favour",
+      "txHash": "0xe0cca744130beec07e14e033d39ee25509547178e96f951ae8ebe226dacb86fb",
+      "blockNumber": 64,
+      "savedAt": "2026-04-18T14:36:21.227Z"
+    },
+    {
+      "type": "ReservationConfirmed",
+      "reservationId": 4,
+      "txHash": "0x395d761dfdeb2d094680260c83071d372516842a9bcbe0f5516c0c118ea7d88b",
+      "blockNumber": 65,
+      "savedAt": "2026-04-18T14:36:29.194Z"
     }
   ],
   "transactions": []
