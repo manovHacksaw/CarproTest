@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "address": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "lastActivity": "2026-04-18T13:53:06.077Z",
+      "createdAt": "2026-04-18T13:53:06.077Z",
+      "updatedAt": "2026-04-18T13:53:06.077Z"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "dea7a49b-d367-4272-9ddb-7e3c3174e536",
+      "renterAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "carName": "BMW 530",
+      "carId": 4,
+      "pickUpDate": "2026-05-01",
+      "dropOffDate": "2026-05-08",
+      "pickUpLocation": "Los Angeles",
+      "dropOffLocation": "Los Angeles",
+      "pricing": {
+        "carName": "BMW 530",
+        "days": 7,
+        "totalEth": "0.238000",
+        "totalUsd": "476.00",
+        "pricePerDayEth": "0.034",
+        "discountedEth": "0.214200",
+        "discountedUsd": "428.40",
+        "discountPercent": 10,
+        "ethToUsdRate": 2000
+      },
+      "personalInfo": {
+        "name": "Test User",
+        "email": "test@example.com",
+        "phone": "555-0100"
+      },
+      "status": "confirmed",
+      "chainReservationId": 0,
+      "txHash": "0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c",
+      "createdAt": "2026-04-18T13:53:06.076Z",
+      "updatedAt": "2026-04-18T13:53:17.192Z"
+    }
+  ],
+  "payments": [],
+  "analytics": {
+    "totalBookings": 1,
+    "totalRevenue": "0.214200",
+    "carStats": {
+      "BMW 530": {
+        "bookings": 1,
+        "revenue": "0.214200"
+      }
+    }
+  },
+  "events": [
+    {
+      "type": "CarBooked",
+      "reservationId": 0,
+      "renter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "carType": "BMW 530",
+      "pickUpDate": 1777593600,
+      "dropOffDate": 1778198400,
+      "txHash": "0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c",
+      "blockNumber": 4,
+      "savedAt": "2026-04-18T13:53:08.471Z"
+    },
+    {
+      "type": "PaymentReceived",
+      "reservationId": 0,
+      "renter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "amountEth": "0.0",
+      "txHash": "0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c",
+      "blockNumber": 4,
+      "savedAt": "2026-04-18T13:53:08.480Z"
+    },
+    {
+      "type": "ReservationConfirmed",
+      "reservationId": 0,
+      "txHash": "0xf5c857bf49349e5322c96bffdef3ece8d48b56148754032e607dd52523e5679a",
+      "blockNumber": 5,
+      "savedAt": "2026-04-18T13:53:20.499Z"
+    }
+  ],
+  "transactions": []
+}

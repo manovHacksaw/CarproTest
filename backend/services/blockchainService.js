@@ -158,12 +158,13 @@ async function getAllReservationsFromChain() {
 async function bookCarOnChain(renterAddress, carType, pickUpDate, dropOffDate) {
   const pickTs = Math.floor(new Date(pickUpDate).getTime() / 1000);
   const dropTs = Math.floor(new Date(dropOffDate).getTime() / 1000);
-  // Read current rentalFee from chain and forward it as msg.value
   const fee = await getContract().rentalFee();
   const tx = await getContract().bookCar(renterAddress, carType, pickTs, dropTs, { value: fee });
   const receipt = await tx.wait();
-  logger.info("bookCar tx confirmed", { txHash: receipt.transactionHash });
-  return receipt;
+  const event = receipt.events?.find((e) => e.event === "CarBooked");
+  const chainReservationId = event?.args?.reservationId?.toNumber() ?? null;
+  logger.info("bookCar tx confirmed", { txHash: receipt.transactionHash, chainReservationId });
+  return { receipt, chainReservationId };
 }
 
 async function confirmReservationOnChain(reservationId) {
@@ -225,6 +226,16 @@ async function resolveDisputeOnChain(reservationId, refund) {
   return receipt;
 }
 
+async function getRenterReservationsFromChain(renterAddress) {
+  const ids = await getContract().getRenterReservations(renterAddress);
+  return ids.map((id) => id.toNumber());
+}
+
+async function getTotalRentalDaysFromChain() {
+  const days = await getContract().getTotalRentalDays();
+  return days.toNumber();
+}
+
 async function getDisputeFromChain(reservationId) {
   const d = await getContract().getDispute(reservationId);
   const outcomeMap = { 0: "None", 1: "Refunded", 2: "Rejected" };
@@ -270,8 +281,8 @@ async function getContractInfo() {
 function startEventListener() {
   const c = getContract();
 
-  c.on("CarBooked", (renter, carType, pickUpDate, dropOffDate, event) => {
-    const data = { type: "CarBooked", renter, carType, pickUpDate: pickUpDate.toNumber(), dropOffDate: dropOffDate.toNumber(), txHash: event.transactionHash, blockNumber: event.blockNumber };
+  c.on("CarBooked", (reservationId, renter, carType, pickUpDate, dropOffDate, event) => {
+    const data = { type: "CarBooked", reservationId: reservationId.toNumber(), renter, carType, pickUpDate: pickUpDate.toNumber(), dropOffDate: dropOffDate.toNumber(), txHash: event.transactionHash, blockNumber: event.blockNumber };
     db.saveEvent(data);
     logger.info("Event: CarBooked", data);
   });
@@ -312,6 +323,12 @@ function startEventListener() {
     logger.info("Event: DisputeResolved", data);
   });
 
+  c.on("RefundIssued", (reservationId, renter, amount, reason, event) => {
+    const data = { type: "RefundIssued", reservationId: reservationId.toNumber(), renter, amountEth: ethers.utils.formatEther(amount), reason, txHash: event.transactionHash, blockNumber: event.blockNumber };
+    db.saveEvent(data);
+    logger.info("Event: RefundIssued", data);
+  });
+
   logger.info("Blockchain event listeners active");
 }
 
@@ -339,4 +356,6 @@ module.exports = {
   raiseDisputeOnChain,
   resolveDisputeOnChain,
   getDisputeFromChain,
+  getRenterReservationsFromChain,
+  getTotalRentalDaysFromChain,
 };

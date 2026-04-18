@@ -67,4 +67,26 @@ router.get("/count", async (req, res) => {
   }
 });
 
+// GET /api/blockchain/renter/:address/reservations - reservation IDs for a renter
+router.get("/renter/:address/reservations", async (req, res) => {
+  const { address } = req.params;
+  if (!isValidEthAddress(address)) return errorResponse(res, "Invalid Ethereum address", 422);
+  try {
+    const ids = await blockchainService.getRenterReservationsFromChain(address);
+    return successResponse(res, { address, reservationIds: ids, count: ids.length });
+  } catch (err) {
+    return errorResponse(res, err.message, 500);
+  }
+});
+
+// GET /api/blockchain/stats/total-days - total rental days across all reservations
+router.get("/stats/total-days", async (req, res) => {
+  try {
+    const totalDays = await blockchainService.getTotalRentalDaysFromChain();
+    return successResponse(res, { totalRentalDays: totalDays });
+  } catch (err) {
+    return errorResponse(res, err.message, 500);
+  }
+});
+
 module.exports = router;

@@ -45,35 +45,44 @@ async function createReservation({ renterAddress, carName, pickUpDate, dropOffDa
 
   db.saveReservation(reservation);
   db.upsertUser(renterAddress, { lastActivity: new Date().toISOString() });
-  logger.info("Reservation created", { id: reservation.id, renterAddress, carName });
 
-  return reservation;
+  try {
+    const { receipt, chainReservationId } = await blockchainService.bookCarOnChain(
+      renterAddress, carName, pickUpDate, dropOffDate
+    );
+    const withChain = {
+      ...reservation,
+      chainReservationId,
+      txHash: receipt.transactionHash,
+      updatedAt: new Date().toISOString(),
+    };
+    db.saveReservation(withChain);
+    logger.info("Reservation created and booked on-chain", { id: reservation.id, chainReservationId, txHash: receipt.transactionHash });
+    return withChain;
+  } catch (err) {
+    logger.error("On-chain booking failed, reservation saved locally only", { id: reservation.id, error: err.message });
+    return reservation;
+  }
 }
 
-async function confirmReservation(reservationId, txHash) {
+async function confirmReservation(reservationId) {
   const reservation = db.getReservationById(reservationId);
   if (!reservation) throw new Error("Reservation not found");
   if (reservation.status === "cancelled") throw new Error("Cannot confirm a cancelled reservation");
+  if (reservation.chainReservationId === null || reservation.chainReservationId === undefined)
+    throw new Error("No on-chain reservation ID — booking may not have been submitted to the blockchain");
 
-  // Verify tx on chain
-  let txDetails = null;
-  try {
-    txDetails = await blockchainService.getTransactionDetails(txHash);
-  } catch (err) {
-    logger.warn("Could not verify tx on chain", { txHash, error: err.message });
-  }
+  await blockchainService.confirmReservationOnChain(reservation.chainReservationId);
 
   const updated = {
     ...reservation,
     status: "confirmed",
-    txHash,
-    txDetails: txDetails?.receipt || null,
     updatedAt: new Date().toISOString(),
   };
 
   db.saveReservation(updated);
   db.updateAnalytics(reservation.carName, reservation.pricing.discountedEth);
-  logger.info("Reservation confirmed", { id: reservationId, txHash });
+  logger.info("Reservation confirmed on-chain", { id: reservationId, chainReservationId: reservation.chainReservationId });
 
   return updated;
 }
@@ -84,6 +93,17 @@ async function cancelReservation(reservationId, renterAddress) {
   if (reservation.renterAddress.toLowerCase() !== renterAddress.toLowerCase())
     throw new Error("Unauthorized: only the renter can cancel");
   if (reservation.status === "cancelled") throw new Error("Already cancelled");
+
+  // Call on-chain so refund policy runs in the contract
+  if (reservation.chainReservationId !== null && reservation.chainReservationId !== undefined) {
+    try {
+      await blockchainService.cancelReservationOnChain(reservation.chainReservationId);
+      logger.info("Cancellation written to chain", { id: reservationId, chainReservationId: reservation.chainReservationId });
+    } catch (err) {
+      logger.error("On-chain cancellation failed", { id: reservationId, error: err.message });
+      throw new Error("On-chain cancellation failed: " + err.message);
+    }
+  }
 
   const updated = {
     ...reservation,

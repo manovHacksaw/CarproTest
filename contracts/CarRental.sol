@@ -41,7 +41,7 @@ contract CarRental {
 
     mapping(uint256 => Dispute) public disputes;
 
-    event CarBooked(address indexed renter, string carType, uint256 pickUpDate, uint256 dropOffDate);
+    event CarBooked(uint256 indexed reservationId, address indexed renter, string carType, uint256 pickUpDate, uint256 dropOffDate);
     event ReservationConfirmed(uint256 indexed reservationId);
     event ReservationCanceled(uint256 indexed reservationId);
     event BackendAuthorized(address indexed backend);
@@ -50,6 +50,7 @@ contract CarRental {
     event RentalFeeUpdated(uint256 newFee);
     event DisputeRaised(uint256 indexed reservationId, address indexed renter, string reason);
     event DisputeResolved(uint256 indexed reservationId, address indexed resolver, bool refunded);
+    event RefundIssued(uint256 indexed reservationId, address indexed renter, uint256 amount, string reason);
 
     constructor(address _authorizedBackend) {
         owner = msg.sender;
@@ -79,7 +80,7 @@ contract CarRental {
         reservations.push(Reservation(_renter, _carType, _pickUpDate, _dropOffDate, false));
         reservationCount++;
         reservationPayments[reservationId] = msg.value;
-        emit CarBooked(_renter, _carType, _pickUpDate, _dropOffDate);
+        emit CarBooked(reservationId, _renter, _carType, _pickUpDate, _dropOffDate);
         emit PaymentReceived(reservationId, _renter, msg.value);
     }
 
@@ -91,8 +92,39 @@ contract CarRental {
 
     function cancelReservation(uint256 _reservationId) external onlyBackend {
         require(_reservationId < reservationCount, "Invalid reservation ID");
+
+        // Capture before delete zeroes the struct
+        address renter = reservations[_reservationId].renter;
+        uint256 pickUpDate = reservations[_reservationId].pickUpDate;
+        uint256 payment = reservationPayments[_reservationId];
+
+        // Effects: zero out state before any transfer
         delete reservations[_reservationId];
+        reservationPayments[_reservationId] = 0;
         emit ReservationCanceled(_reservationId);
+
+        // Interactions: transfer refund based on cancellation timing
+        if (payment > 0 && renter != address(0)) {
+            uint256 refundAmount = 0;
+            string memory reason;
+
+            if (block.timestamp < pickUpDate) {
+                if (pickUpDate - block.timestamp > 48 hours) {
+                    refundAmount = payment;
+                    reason = "Full refund: cancelled >48h before pickup";
+                } else {
+                    refundAmount = payment / 2;
+                    reason = "Partial refund: cancelled within 48h of pickup";
+                }
+            }
+            // Past pickup date: no refund, ETH stays in contract
+
+            if (refundAmount > 0) {
+                (bool ok, ) = payable(renter).call{value: refundAmount}("");
+                require(ok, "Refund transfer failed");
+                emit RefundIssued(_reservationId, renter, refundAmount, reason);
+            }
+        }
     }
 
     function withdraw() external onlyOwner {
@@ -114,9 +146,26 @@ contract CarRental {
 
     function resolveDispute(uint256 _reservationId, bool _refund) external onlyOwner {
         require(disputes[_reservationId].raised, "No active dispute");
+
+        // Capture before state changes
+        address renter = disputes[_reservationId].renter;
+        uint256 amount = reservationPayments[_reservationId];
+
+        // Effects: update all state before any external call
         disputes[_reservationId].raised = false;
         disputes[_reservationId].outcome = _refund ? DisputeOutcome.Refunded : DisputeOutcome.Rejected;
+        if (_refund) {
+            require(amount > 0, "No payment on record to refund");
+            reservationPayments[_reservationId] = 0;
+        }
         emit DisputeResolved(_reservationId, msg.sender, _refund);
+
+        // Interactions: transfer ETH last to prevent reentrancy
+        if (_refund) {
+            (bool ok, ) = payable(renter).call{value: amount}("");
+            require(ok, "Refund transfer failed");
+            emit RefundIssued(_reservationId, renter, amount, "Dispute resolved in renter's favour");
+        }
     }
 
     function getDispute(uint256 _reservationId)
@@ -136,5 +185,31 @@ contract CarRental {
         require(_reservationId < reservationCount, "Invalid reservation ID");
         Reservation storage r = reservations[_reservationId];
         return (r.renter, r.carType, r.pickUpDate, r.dropOffDate, r.confirmed);
+    }
+
+    function getRenterReservations(address _renter) external view returns (uint256[] memory) {
+        uint256[] memory temp = new uint256[](reservationCount);
+        uint256 count = 0;
+        for (uint256 i = 0; i < reservationCount; i++) {
+            if (reservations[i].renter == _renter) {
+                temp[count] = i;
+                count++;
+            }
+        }
+        uint256[] memory result = new uint256[](count);
+        for (uint256 i = 0; i < count; i++) {
+            result[i] = temp[i];
+        }
+        return result;
+    }
+
+    function getTotalRentalDays() external view returns (uint256) {
+        uint256 total = 0;
+        for (uint256 i = 0; i < reservationCount; i++) {
+            if (reservations[i].renter != address(0)) {
+                total += (reservations[i].dropOffDate - reservations[i].pickUpDate) / 1 days;
+            }
+        }
+        return total;
     }
 }

@@ -132,6 +132,8 @@ async function start() {
     logger.info("  GET    /api/blockchain/balance/:address");
     logger.info("  GET    /api/blockchain/tx/:hash");
     logger.info("  GET    /api/blockchain/events");
+    logger.info("  GET    /api/blockchain/renter/:address/reservations");
+    logger.info("  GET    /api/blockchain/stats/total-days");
     logger.info("  ── Wallet ──");
     logger.info("  GET    /api/wallet/:address/balance");
     logger.info("  GET    /api/wallet/:address/nonce");

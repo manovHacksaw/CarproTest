@@ -2,7 +2,7 @@ const router = require("express").Router();
 const reservationService = require("../services/reservationService");
 const db = require("../models/db");
 const { requireAuth } = require("../middleware/auth");
-const { validateBooking, validateConfirm } = require("../middleware/validate");
+const { validateBooking } = require("../middleware/validate");
 const { bookingLimiter } = require("../middleware/rateLimiter");
 const { successResponse, errorResponse, paginate } = require("../utils/helpers");
 
@@ -51,10 +51,10 @@ router.get("/:id", (req, res) => {
   return successResponse(res, reservation);
 });
 
-// PATCH /api/reservations/:id/confirm - confirm after payment tx
-router.patch("/:id/confirm", validateConfirm, async (req, res) => {
+// PATCH /api/reservations/:id/confirm - confirm on-chain using stored chainReservationId
+router.patch("/:id/confirm", async (req, res) => {
   try {
-    const updated = await reservationService.confirmReservation(req.params.id, req.body.txHash);
+    const updated = await reservationService.confirmReservation(req.params.id);
     return successResponse(res, updated, "Reservation confirmed");
   } catch (err) {
     return errorResponse(res, err.message);

@@ -356,3 +356,206 @@ For more info go to https://v2.hardhat.org/HH502 or run Hardhat with --show-stac
 [2026-04-17T19:46:01.410Z] [ERROR] raiseDispute error {"error":"cannot estimate gas; transaction may fail or may require manual gas limit [ See: https://links.ethers.org/v5-errors-UNPREDICTABLE_GAS_LIMIT ] (error={\"reason\":\"Error: VM Exception while processing transaction: reverted with reason string 'Invalid reservation ID'\",\"code\":\"UNPREDICTABLE_GAS_LIMIT\",\"method\":\"estimateGas\",\"transaction\":{\"from\":\"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\",\"maxPriorityFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x59682f00\"},\"maxFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x5e6af56e\"},\"to\":\"0x5FC8d32690cc91D4c39d9d3abcBD16989F875707\",\"data\":\"0x5aef573c0000000000000000000000000000000000000000000000000000000000000063000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000047465737400000000000000000000000000000000000000000000000000000000\",\"type\":2,\"accessList\":null},\"error\":{\"reason\":\"processing response error\",\"code\":\"SERVER_ERROR\",\"body\":\"{\\\"jsonrpc\\\":\\\"2.0\\\",\\\"id\\\":661,\\\"error\\\":{\\\"code\\\":-32603,\\\"message\\\":\\\"Error: VM Exception while processing transaction: reverted with reason string 'Invalid reservation ID'\\\",\\\"data\\\":{\\\"message\\\":\\\"Error: VM Exception while processing transaction: reverted with reason string 'Invalid reservation ID'\\\",\\\"data\\\":\\\"0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000016496e76616c6964207265736572766174696f6e20494400000000000000000000\\\"}}}\",\"error\":{\"code\":-32603,\"data\":{\"message\":\"Error: VM Exception while processing transaction: reverted with reason string 'Invalid reservation ID'\",\"data\":\"0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000016496e76616c6964207265736572766174696f6e20494400000000000000000000\"}},\"requestBody\":\"{\\\"method\\\":\\\"eth_estimateGas\\\",\\\"params\\\":[{\\\"type\\\":\\\"0x2\\\",\\\"maxFeePerGas\\\":\\\"0x5e6af56e\\\",\\\"maxPriorityFeePerGas\\\":\\\"0x59682f00\\\",\\\"from\\\":\\\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\\\",\\\"to\\\":\\\"0x5fc8d32690cc91d4c39d9d3abcbd16989f875707\\\",\\\"data\\\":\\\"0x5aef573c0000000000000000000000000000000000000000000000000000000000000063000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000047465737400000000000000000000000000000000000000000000000000000000\\\"}],\\\"id\\\":661,\\\"jsonrpc\\\":\\\"2.0\\\"}\",\"requestMethod\":\"POST\",\"url\":\"http://127.0.0.1:8545\"}}, tx={\"data\":\"0x5aef573c0000000000000000000000000000000000000000000000000000000000000063000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000047465737400000000000000000000000000000000000000000000000000000000\",\"to\":{},\"from\":\"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\",\"type\":2,\"maxFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x5e6af56e\"},\"maxPriorityFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x59682f00\"},\"nonce\":{},\"gasLimit\":{},\"chainId\":{}}, code=UNPREDICTABLE_GAS_LIMIT, version=abstract-signer/5.8.0)"}
 [2026-04-17T19:46:01.456Z] [ERROR] resolveDispute error {"error":"cannot estimate gas; transaction may fail or may require manual gas limit [ See: https://links.ethers.org/v5-errors-UNPREDICTABLE_GAS_LIMIT ] (error={\"reason\":\"Error: VM Exception while processing transaction: reverted with reason string 'No active dispute'\",\"code\":\"UNPREDICTABLE_GAS_LIMIT\",\"method\":\"estimateGas\",\"transaction\":{\"from\":\"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\",\"maxPriorityFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x59682f00\"},\"maxFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x5e6af56e\"},\"to\":\"0x5FC8d32690cc91D4c39d9d3abcBD16989F875707\",\"data\":\"0x34b25ee200000000000000000000000000000000000000000000000000000000000000630000000000000000000000000000000000000000000000000000000000000000\",\"type\":2,\"accessList\":null},\"error\":{\"reason\":\"processing response error\",\"code\":\"SERVER_ERROR\",\"body\":\"{\\\"jsonrpc\\\":\\\"2.0\\\",\\\"id\\\":668,\\\"error\\\":{\\\"code\\\":-32603,\\\"message\\\":\\\"Error: VM Exception while processing transaction: reverted with reason string 'No active dispute'\\\",\\\"data\\\":{\\\"message\\\":\\\"Error: VM Exception while processing transaction: reverted with reason string 'No active dispute'\\\",\\\"data\\\":\\\"0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000114e6f206163746976652064697370757465000000000000000000000000000000\\\"}}}\",\"error\":{\"code\":-32603,\"data\":{\"message\":\"Error: VM Exception while processing transaction: reverted with reason string 'No active dispute'\",\"data\":\"0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000114e6f206163746976652064697370757465000000000000000000000000000000\"}},\"requestBody\":\"{\\\"method\\\":\\\"eth_estimateGas\\\",\\\"params\\\":[{\\\"type\\\":\\\"0x2\\\",\\\"maxFeePerGas\\\":\\\"0x5e6af56e\\\",\\\"maxPriorityFeePerGas\\\":\\\"0x59682f00\\\",\\\"from\\\":\\\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\\\",\\\"to\\\":\\\"0x5fc8d32690cc91d4c39d9d3abcbd16989f875707\\\",\\\"data\\\":\\\"0x34b25ee200000000000000000000000000000000000000000000000000000000000000630000000000000000000000000000000000000000000000000000000000000000\\\"}],\\\"id\\\":668,\\\"jsonrpc\\\":\\\"2.0\\\"}\",\"requestMethod\":\"POST\",\"url\":\"http://127.0.0.1:8545\"}}, tx={\"data\":\"0x34b25ee200000000000000000000000000000000000000000000000000000000000000630000000000000000000000000000000000000000000000000000000000000000\",\"to\":{},\"from\":\"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\",\"type\":2,\"maxFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x5e6af56e\"},\"maxPriorityFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x59682f00\"},\"nonce\":{},\"gasLimit\":{},\"chainId\":{}}, code=UNPREDICTABLE_GAS_LIMIT, version=abstract-signer/5.8.0)"}
 [2026-04-17T19:46:01.503Z] [ERROR] Withdraw error {"error":"cannot estimate gas; transaction may fail or may require manual gas limit [ See: https://links.ethers.org/v5-errors-UNPREDICTABLE_GAS_LIMIT ] (error={\"reason\":\"Error: VM Exception while processing transaction: reverted with reason string 'Nothing to withdraw'\",\"code\":\"UNPREDICTABLE_GAS_LIMIT\",\"method\":\"estimateGas\",\"transaction\":{\"from\":\"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\",\"maxPriorityFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x59682f00\"},\"maxFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x5e6af56e\"},\"to\":\"0x5FC8d32690cc91D4c39d9d3abcBD16989F875707\",\"data\":\"0x3ccfd60b\",\"type\":2,\"accessList\":null},\"error\":{\"reason\":\"processing response error\",\"code\":\"SERVER_ERROR\",\"body\":\"{\\\"jsonrpc\\\":\\\"2.0\\\",\\\"id\\\":675,\\\"error\\\":{\\\"code\\\":-32603,\\\"message\\\":\\\"Error: VM Exception while processing transaction: reverted with reason string 'Nothing to withdraw'\\\",\\\"data\\\":{\\\"message\\\":\\\"Error: VM Exception while processing transaction: reverted with reason string 'Nothing to withdraw'\\\",\\\"data\\\":\\\"0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000134e6f7468696e6720746f20776974686472617700000000000000000000000000\\\"}}}\",\"error\":{\"code\":-32603,\"data\":{\"message\":\"Error: VM Exception while processing transaction: reverted with reason string 'Nothing to withdraw'\",\"data\":\"0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000134e6f7468696e6720746f20776974686472617700000000000000000000000000\"}},\"requestBody\":\"{\\\"method\\\":\\\"eth_estimateGas\\\",\\\"params\\\":[{\\\"type\\\":\\\"0x2\\\",\\\"maxFeePerGas\\\":\\\"0x5e6af56e\\\",\\\"maxPriorityFeePerGas\\\":\\\"0x59682f00\\\",\\\"from\\\":\\\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\\\",\\\"to\\\":\\\"0x5fc8d32690cc91d4c39d9d3abcbd16989f875707\\\",\\\"data\\\":\\\"0x3ccfd60b\\\"}],\\\"id\\\":675,\\\"jsonrpc\\\":\\\"2.0\\\"}\",\"requestMethod\":\"POST\",\"url\":\"http://127.0.0.1:8545\"}}, tx={\"data\":\"0x3ccfd60b\",\"to\":{},\"from\":\"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266\",\"type\":2,\"maxFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x5e6af56e\"},\"maxPriorityFeePerGas\":{\"type\":\"BigNumber\",\"hex\":\"0x59682f00\"},\"nonce\":{},\"gasLimit\":{},\"chainId\":{}}, code=UNPREDICTABLE_GAS_LIMIT, version=abstract-signer/5.8.0)"}
+[2026-04-18T13:38:37.223Z] [INFO] Starting Car Rental Backend...
+[2026-04-18T13:38:37.261Z] [ERROR] FATAL: Bootstrap failed. Cannot reach blockchain node at http://127.0.0.1:8545. Run: npx hardhat node
+[2026-04-18T13:38:37.262Z] [ERROR] Run: npx hardhat node
+[2026-04-18T13:38:54.229Z] [INFO] Starting Car Rental Backend...
+[2026-04-18T13:38:54.262Z] [ERROR] FATAL: Bootstrap failed. Cannot reach blockchain node at http://127.0.0.1:8545. Run: npx hardhat node
+[2026-04-18T13:38:54.263Z] [ERROR] Run: npx hardhat node
+[2026-04-18T13:38:58.580Z] [INFO] Starting Car Rental Backend...
+[2026-04-18T13:38:58.604Z] [ERROR] FATAL: Bootstrap failed. Cannot reach blockchain node at http://127.0.0.1:8545. Run: npx hardhat node
+[2026-04-18T13:38:58.604Z] [ERROR] Run: npx hardhat node
+[2026-04-18T13:39:15.574Z] [INFO] Starting Car Rental Backend...
+[2026-04-18T13:39:15.618Z] [INFO] Compiling CarRental.sol...
+[2026-04-18T13:39:17.778Z] [INFO] Contract compiled successfully
+[2026-04-18T13:39:17.781Z] [INFO] ABI updated from compiled artifact
+[2026-04-18T13:39:17.781Z] [INFO] Deploying CarRental contract...
+[2026-04-18T13:39:17.807Z] [INFO] Backend wallet (authorized signer): {"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"}
+[2026-04-18T13:39:17.986Z] [INFO] Contract deployed {"contractAddress":"0x5FbDB2315678afecb367f032d93F642f64180aa3","authorizedBackend":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","deployedAt":"2026-04-18T13:39:17.985Z","network":"unknown","chainId":31337}
+[2026-04-18T13:39:17.990Z] [INFO] Blockchain event listeners active
+[2026-04-18T13:39:18.004Z] [INFO] Server running on http://localhost:5000
+[2026-04-18T13:39:18.005Z] [INFO] Environment: development
+[2026-04-18T13:39:18.005Z] [INFO] Blockchain: unknown (chainId: 31337)
+[2026-04-18T13:39:18.006Z] [INFO] Contract: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+[2026-04-18T13:39:18.006Z] [INFO] ─── API Routes ───────────────────────────────────────
+[2026-04-18T13:39:18.007Z] [INFO]   GET    /health
+[2026-04-18T13:39:18.007Z] [INFO]   GET    /api/status
+[2026-04-18T13:39:18.007Z] [INFO]   ── Cars ──
+[2026-04-18T13:39:18.007Z] [INFO]   GET    /api/cars
+[2026-04-18T13:39:18.008Z] [INFO]   GET    /api/cars/:id/quote
+[2026-04-18T13:39:18.008Z] [INFO]   GET    /api/cars/prices
+[2026-04-18T13:39:18.008Z] [INFO]   ── Reservations ──
+[2026-04-18T13:39:18.009Z] [INFO]   POST   /api/reservations
+[2026-04-18T13:39:18.009Z] [INFO]   PATCH  /api/reservations/:id/confirm
+[2026-04-18T13:39:18.009Z] [INFO]   DELETE /api/reservations/:id
+[2026-04-18T13:39:18.010Z] [INFO]   GET    /api/reservations/chain
+[2026-04-18T13:39:18.010Z] [INFO]   ── Contract (direct chain calls) ──
+[2026-04-18T13:39:18.010Z] [INFO]   GET    /api/contract/info
+[2026-04-18T13:39:18.011Z] [INFO]   GET    /api/contract/count
+[2026-04-18T13:39:18.011Z] [INFO]   GET    /api/contract/reservation/:id
+[2026-04-18T13:39:18.011Z] [INFO]   POST   /api/contract/book
+[2026-04-18T13:39:18.012Z] [INFO]   POST   /api/contract/confirm/:id
+[2026-04-18T13:39:18.012Z] [INFO]   POST   /api/contract/cancel/:id
+[2026-04-18T13:39:18.012Z] [INFO]   ── Blockchain ──
+[2026-04-18T13:39:18.013Z] [INFO]   GET    /api/blockchain/status
+[2026-04-18T13:39:18.013Z] [INFO]   GET    /api/blockchain/balance/:address
+[2026-04-18T13:39:18.013Z] [INFO]   GET    /api/blockchain/tx/:hash
+[2026-04-18T13:39:18.013Z] [INFO]   GET    /api/blockchain/events
+[2026-04-18T13:39:18.014Z] [INFO]   ── Wallet ──
+[2026-04-18T13:39:18.014Z] [INFO]   GET    /api/wallet/:address/balance
+[2026-04-18T13:39:18.014Z] [INFO]   GET    /api/wallet/:address/nonce
+[2026-04-18T13:39:18.014Z] [INFO]   GET    /api/wallet/:address/history
+[2026-04-18T13:39:18.015Z] [INFO]   POST   /api/wallet/validate
+[2026-04-18T13:39:18.015Z] [INFO]   POST   /api/wallet/estimate-transfer
+[2026-04-18T13:39:18.015Z] [INFO]   ── Gas ──
+[2026-04-18T13:39:18.015Z] [INFO]   GET    /api/gas/price
+[2026-04-18T13:39:18.016Z] [INFO]   POST   /api/gas/estimate
+[2026-04-18T13:39:18.016Z] [INFO]   POST   /api/gas/estimate/batch
+[2026-04-18T13:39:18.016Z] [INFO]   ── Payments ──
+[2026-04-18T13:39:18.016Z] [INFO]   POST   /api/payments/verify
+[2026-04-18T13:39:18.017Z] [INFO]   GET    /api/payments/revenue
+[2026-04-18T13:39:18.017Z] [INFO]   GET    /api/payments/reservation/:id
+[2026-04-18T13:39:18.017Z] [INFO]   GET    /api/payments/fee
+[2026-04-18T13:39:18.017Z] [INFO]   GET    /api/payments/contract-balance
+[2026-04-18T13:39:18.017Z] [INFO]   GET    /api/payments/chain/:reservationId
+[2026-04-18T13:39:18.018Z] [INFO]   POST   /api/payments/fee
+[2026-04-18T13:39:18.018Z] [INFO]   POST   /api/payments/withdraw
+[2026-04-18T13:39:18.018Z] [INFO]   ── Disputes ──
+[2026-04-18T13:39:18.018Z] [INFO]   POST   /api/disputes/:reservationId/raise
+[2026-04-18T13:39:18.019Z] [INFO]   POST   /api/disputes/:reservationId/resolve
+[2026-04-18T13:39:18.019Z] [INFO]   GET    /api/disputes/:reservationId
+[2026-04-18T13:39:18.019Z] [INFO]   ── Events ──
+[2026-04-18T13:39:18.020Z] [INFO]   GET    /api/events
+[2026-04-18T13:39:18.020Z] [INFO]   GET    /api/events/latest
+[2026-04-18T13:39:18.020Z] [INFO]   GET    /api/events/types
+[2026-04-18T13:39:18.020Z] [INFO]   GET    /api/events/query
+[2026-04-18T13:39:18.021Z] [INFO]   ── Notifications (SSE) ──
+[2026-04-18T13:39:18.021Z] [INFO]   GET    /api/notifications/subscribe/:address
+[2026-04-18T13:39:18.021Z] [INFO]   GET    /api/notifications/stats
+[2026-04-18T13:39:18.022Z] [INFO]   ── Users ──
+[2026-04-18T13:39:18.022Z] [INFO]   POST   /api/users/auth
+[2026-04-18T13:39:18.022Z] [INFO]   GET    /api/users/:address
+[2026-04-18T13:39:18.022Z] [INFO]   ── Analytics ──
+[2026-04-18T13:39:18.023Z] [INFO]   GET    /api/analytics
+[2026-04-18T13:39:18.023Z] [INFO]   GET    /api/analytics/cars
+[2026-04-18T13:39:18.023Z] [INFO]   ── Pricing ──
+[2026-04-18T13:39:18.023Z] [INFO]   GET    /api/pricing/quote
+[2026-04-18T13:39:18.024Z] [INFO]   GET    /api/pricing/all
+[2026-04-18T13:39:18.024Z] [INFO] ─────────────────────────────────────────────────────
+[2026-04-18T13:50:39.779Z] [INFO] Starting Car Rental Backend...
+[2026-04-18T13:50:39.806Z] [INFO] Compiling CarRental.sol...
+[2026-04-18T13:50:42.618Z] [INFO] Contract compiled successfully
+[2026-04-18T13:50:42.619Z] [INFO] ABI updated from compiled artifact
+[2026-04-18T13:50:42.620Z] [INFO] Deploying CarRental contract...
+[2026-04-18T13:50:42.620Z] [ERROR] FATAL: Bootstrap failed. PRIVATE_KEY not set in backend .env
+[2026-04-18T13:50:42.621Z] [ERROR] Run: npx hardhat node
+[2026-04-18T13:51:43.219Z] [INFO] Starting Car Rental Backend...
+[2026-04-18T13:51:43.245Z] [INFO] Compiling CarRental.sol...
+[2026-04-18T13:51:45.815Z] [INFO] Contract compiled successfully
+[2026-04-18T13:51:45.816Z] [INFO] ABI updated from compiled artifact
+[2026-04-18T13:51:45.816Z] [INFO] Deploying CarRental contract...
+[2026-04-18T13:51:45.844Z] [INFO] Backend wallet (authorized signer): {"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"}
+[2026-04-18T13:51:45.987Z] [INFO] Contract deployed {"contractAddress":"0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512","authorizedBackend":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","deployedAt":"2026-04-18T13:51:45.986Z","network":"unknown","chainId":31337}
+[2026-04-18T13:51:45.989Z] [INFO] Blockchain event listeners active
+[2026-04-18T13:52:29.457Z] [INFO] Starting Car Rental Backend...
+[2026-04-18T13:52:29.490Z] [INFO] Compiling CarRental.sol...
+[2026-04-18T13:52:32.182Z] [INFO] Contract compiled successfully
+[2026-04-18T13:52:32.183Z] [INFO] ABI updated from compiled artifact
+[2026-04-18T13:52:32.183Z] [INFO] Deploying CarRental contract...
+[2026-04-18T13:52:32.212Z] [INFO] Backend wallet (authorized signer): {"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"}
+[2026-04-18T13:52:32.332Z] [INFO] Contract deployed {"contractAddress":"0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0","authorizedBackend":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","deployedAt":"2026-04-18T13:52:32.331Z","network":"unknown","chainId":31337}
+[2026-04-18T13:52:32.334Z] [INFO] Blockchain event listeners active
+[2026-04-18T13:52:32.347Z] [INFO] Server running on http://localhost:5000
+[2026-04-18T13:52:32.347Z] [INFO] Environment: development
+[2026-04-18T13:52:32.347Z] [INFO] Blockchain: unknown (chainId: 31337)
+[2026-04-18T13:52:32.347Z] [INFO] Contract: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
+[2026-04-18T13:52:32.348Z] [INFO] ─── API Routes ───────────────────────────────────────
+[2026-04-18T13:52:32.348Z] [INFO]   GET    /health
+[2026-04-18T13:52:32.348Z] [INFO]   GET    /api/status
+[2026-04-18T13:52:32.348Z] [INFO]   ── Cars ──
+[2026-04-18T13:52:32.349Z] [INFO]   GET    /api/cars
+[2026-04-18T13:52:32.349Z] [INFO]   GET    /api/cars/:id/quote
+[2026-04-18T13:52:32.349Z] [INFO]   GET    /api/cars/prices
+[2026-04-18T13:52:32.349Z] [INFO]   ── Reservations ──
+[2026-04-18T13:52:32.349Z] [INFO]   POST   /api/reservations
+[2026-04-18T13:52:32.350Z] [INFO]   PATCH  /api/reservations/:id/confirm
+[2026-04-18T13:52:32.350Z] [INFO]   DELETE /api/reservations/:id
+[2026-04-18T13:52:32.350Z] [INFO]   GET    /api/reservations/chain
+[2026-04-18T13:52:32.350Z] [INFO]   ── Contract (direct chain calls) ──
+[2026-04-18T13:52:32.350Z] [INFO]   GET    /api/contract/info
+[2026-04-18T13:52:32.351Z] [INFO]   GET    /api/contract/count
+[2026-04-18T13:52:32.351Z] [INFO]   GET    /api/contract/reservation/:id
+[2026-04-18T13:52:32.351Z] [INFO]   POST   /api/contract/book
+[2026-04-18T13:52:32.351Z] [INFO]   POST   /api/contract/confirm/:id
+[2026-04-18T13:52:32.351Z] [INFO]   POST   /api/contract/cancel/:id
+[2026-04-18T13:52:32.352Z] [INFO]   ── Blockchain ──
+[2026-04-18T13:52:32.352Z] [INFO]   GET    /api/blockchain/status
+[2026-04-18T13:52:32.352Z] [INFO]   GET    /api/blockchain/balance/:address
+[2026-04-18T13:52:32.352Z] [INFO]   GET    /api/blockchain/tx/:hash
+[2026-04-18T13:52:32.353Z] [INFO]   GET    /api/blockchain/events
+[2026-04-18T13:52:32.353Z] [INFO]   GET    /api/blockchain/renter/:address/reservations
+[2026-04-18T13:52:32.353Z] [INFO]   GET    /api/blockchain/stats/total-days
+[2026-04-18T13:52:32.353Z] [INFO]   ── Wallet ──
+[2026-04-18T13:52:32.353Z] [INFO]   GET    /api/wallet/:address/balance
+[2026-04-18T13:52:32.354Z] [INFO]   GET    /api/wallet/:address/nonce
+[2026-04-18T13:52:32.354Z] [INFO]   GET    /api/wallet/:address/history
+[2026-04-18T13:52:32.354Z] [INFO]   POST   /api/wallet/validate
+[2026-04-18T13:52:32.354Z] [INFO]   POST   /api/wallet/estimate-transfer
+[2026-04-18T13:52:32.354Z] [INFO]   ── Gas ──
+[2026-04-18T13:52:32.355Z] [INFO]   GET    /api/gas/price
+[2026-04-18T13:52:32.355Z] [INFO]   POST   /api/gas/estimate
+[2026-04-18T13:52:32.355Z] [INFO]   POST   /api/gas/estimate/batch
+[2026-04-18T13:52:32.355Z] [INFO]   ── Payments ──
+[2026-04-18T13:52:32.355Z] [INFO]   POST   /api/payments/verify
+[2026-04-18T13:52:32.356Z] [INFO]   GET    /api/payments/revenue
+[2026-04-18T13:52:32.356Z] [INFO]   GET    /api/payments/reservation/:id
+[2026-04-18T13:52:32.356Z] [INFO]   GET    /api/payments/fee
+[2026-04-18T13:52:32.356Z] [INFO]   GET    /api/payments/contract-balance
+[2026-04-18T13:52:32.357Z] [INFO]   GET    /api/payments/chain/:reservationId
+[2026-04-18T13:52:32.357Z] [INFO]   POST   /api/payments/fee
+[2026-04-18T13:52:32.357Z] [INFO]   POST   /api/payments/withdraw
+[2026-04-18T13:52:32.358Z] [INFO]   ── Disputes ──
+[2026-04-18T13:52:32.358Z] [INFO]   POST   /api/disputes/:reservationId/raise
+[2026-04-18T13:52:32.358Z] [INFO]   POST   /api/disputes/:reservationId/resolve
+[2026-04-18T13:52:32.358Z] [INFO]   GET    /api/disputes/:reservationId
+[2026-04-18T13:52:32.359Z] [INFO]   ── Events ──
+[2026-04-18T13:52:32.359Z] [INFO]   GET    /api/events
+[2026-04-18T13:52:32.359Z] [INFO]   GET    /api/events/latest
+[2026-04-18T13:52:32.359Z] [INFO]   GET    /api/events/types
+[2026-04-18T13:52:32.359Z] [INFO]   GET    /api/events/query
+[2026-04-18T13:52:32.360Z] [INFO]   ── Notifications (SSE) ──
+[2026-04-18T13:52:32.360Z] [INFO]   GET    /api/notifications/subscribe/:address
+[2026-04-18T13:52:32.360Z] [INFO]   GET    /api/notifications/stats
+[2026-04-18T13:52:32.360Z] [INFO]   ── Users ──
+[2026-04-18T13:52:32.361Z] [INFO]   POST   /api/users/auth
+[2026-04-18T13:52:32.361Z] [INFO]   GET    /api/users/:address
+[2026-04-18T13:52:32.361Z] [INFO]   ── Analytics ──
+[2026-04-18T13:52:32.361Z] [INFO]   GET    /api/analytics
+[2026-04-18T13:52:32.362Z] [INFO]   GET    /api/analytics/cars
+[2026-04-18T13:52:32.362Z] [INFO]   ── Pricing ──
+[2026-04-18T13:52:32.362Z] [INFO]   GET    /api/pricing/quote
+[2026-04-18T13:52:32.362Z] [INFO]   GET    /api/pricing/all
+[2026-04-18T13:52:32.362Z] [INFO] ─────────────────────────────────────────────────────
+[2026-04-18T13:53:06.182Z] [INFO] bookCar tx confirmed {"txHash":"0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c","chainReservationId":0}
+[2026-04-18T13:53:06.183Z] [INFO] Reservation created and booked on-chain {"id":"dea7a49b-d367-4272-9ddb-7e3c3174e536","chainReservationId":0,"txHash":"0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c"}
+[2026-04-18T13:53:08.472Z] [INFO] Event: CarBooked {"type":"CarBooked","reservationId":0,"renter":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","carType":"BMW 530","pickUpDate":1777593600,"dropOffDate":1778198400,"txHash":"0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c","blockNumber":4}
+[2026-04-18T13:53:08.481Z] [INFO] Event: PaymentReceived {"type":"PaymentReceived","reservationId":0,"renter":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","amountEth":"0.0","txHash":"0x6f3afebca3ea9df5e2bc7ddfafab846439a9684c91db6ee347b47a48dc1d6c8c","blockNumber":4}
+[2026-04-18T13:53:15.720Z] [INFO] Starting Car Rental Backend...
+[2026-04-18T13:53:15.749Z] [INFO] Compiling CarRental.sol...
+[2026-04-18T13:53:17.191Z] [INFO] confirmReservation tx confirmed {"txHash":"0xf5c857bf49349e5322c96bffdef3ece8d48b56148754032e607dd52523e5679a"}
+[2026-04-18T13:53:17.193Z] [INFO] Reservation confirmed on-chain {"id":"dea7a49b-d367-4272-9ddb-7e3c3174e536","chainReservationId":0}
+[2026-04-18T13:53:18.756Z] [INFO] Contract compiled successfully
+[2026-04-18T13:53:18.758Z] [INFO] ABI updated from compiled artifact
+[2026-04-18T13:53:18.758Z] [INFO] Deploying CarRental contract...
+[2026-04-18T13:53:18.794Z] [INFO] Backend wallet (authorized signer): {"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"}
+[2026-04-18T13:53:18.953Z] [INFO] Contract deployed {"contractAddress":"0x5FC8d32690cc91D4c39d9d3abcBD16989F875707","authorizedBackend":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","deployedAt":"2026-04-18T13:53:18.953Z","network":"unknown","chainId":31337}
+[2026-04-18T13:53:18.956Z] [INFO] Blockchain event listeners active
+[2026-04-18T13:53:20.499Z] [INFO] Event: ReservationConfirmed {"type":"ReservationConfirmed","reservationId":0,"txHash":"0xf5c857bf49349e5322c96bffdef3ece8d48b56148754032e607dd52523e5679a","blockNumber":5}
+[2026-04-18T13:57:17.545Z] [INFO] Starting Car Rental Backend...
+[2026-04-18T13:57:17.581Z] [INFO] Compiling CarRental.sol...
+[2026-04-18T13:57:20.001Z] [INFO] Contract compiled successfully
+[2026-04-18T13:57:20.003Z] [INFO] ABI updated from compiled artifact
+[2026-04-18T13:57:20.003Z] [INFO] Deploying CarRental contract...
+[2026-04-18T13:57:20.029Z] [INFO] Backend wallet (authorized signer): {"address":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"}
+[2026-04-18T13:57:20.157Z] [INFO] Contract deployed {"contractAddress":"0x0165878A594ca255338adfa4d48449f69242Eb8F","authorizedBackend":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","deployedAt":"2026-04-18T13:57:20.157Z","network":"unknown","chainId":31337}
+[2026-04-18T13:57:20.161Z] [INFO] Blockchain event listeners active
